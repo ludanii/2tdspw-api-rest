@@ -1,5 +1,7 @@
 package br.com.fiap.api_rest.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +17,8 @@ public class Livro {
     private int preco;
     private Categoria categoria;
     private String isbn;
+    private boolean ebook;
+    private Date dataLancamento;
 
     public Long getId() {
         return id;
@@ -63,4 +67,22 @@ public class Livro {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
+    public boolean isEbook() {
+        return ebook;
+    }
+
+    public void setEbook(boolean ebook) {
+        this.ebook = ebook;
+    }
+
+    public Date getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(Date dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
+
+
 }
