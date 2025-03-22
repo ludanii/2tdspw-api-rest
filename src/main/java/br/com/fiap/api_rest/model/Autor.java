@@ -9,7 +9,9 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     @ManyToMany
     @JoinTable(name = "autor_livro",
             joinColumns = @JoinColumn(name = "id_livro", referencedColumnName = "id"),

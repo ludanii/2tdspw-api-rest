@@ -26,6 +26,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/livros")
 @Tag(name = "api-livros")
+
 public class LivroController {
     @Autowired
     private LivroRepository livroRepository;
@@ -36,6 +37,7 @@ public class LivroController {
     // POST, GET, PUT, DELETE
 
     @Operation(summary = "Cria um novo livro")
+
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Livro criado com sucesso",
                     content = @Content(
@@ -44,6 +46,7 @@ public class LivroController {
             @ApiResponse(responseCode = "400", description = "Parâmetros informados são inválidos",
                     content = @Content(schema = @Schema()))
     })
+
     @PostMapping
     public ResponseEntity<Livro> createLivro(@Valid @RequestBody LivroRequest livro) {
         Livro livroSalvo = livroRepository.save(livroService.requestToLivro(livro));

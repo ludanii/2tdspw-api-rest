@@ -26,7 +26,7 @@ public class LivroService {
 
     public Livro requestToLivro(LivroRequest livroRequest) {
         Livro livro = new Livro();
-        livro.setAutor(livroRequest.getAutor());
+        livro.setAutores(livroRequest.getAutores());
         livro.setTitulo(livroRequest.getTitulo());
         livro.setPreco(livroRequest.getPreco());
         livro.setCategoria(livroRequest.getCategoria());
@@ -37,12 +37,12 @@ public class LivroService {
     public Livro recordToLivro(LivroRequestDTO livroRecord) {
         Livro livro = new Livro();
         livro.setTitulo(livroRecord.titulo());
-        livro.setAutor(livroRecord.autor());
+        livro.setAutores(livroRecord.autores());
         return livro;
     }
 
     public LivroResponse livroToResponse(Livro livro) {
-        return new LivroResponse(livro.getId(), livro.getAutor() + " - " + livro.getTitulo());
+        return new LivroResponse(livro.getId(), livro.getAutores() + " - " + livro.getTitulo());
     }
 
     public LivroResponseDTO livroToResponseDTO(Livro livro, boolean self) {
@@ -52,7 +52,7 @@ public class LivroService {
         } else {
             link = linkTo(methodOn(LivroController.class).readLivros(0)).withRel("Lista de Livros");
         }
-        return new LivroResponseDTO(livro.getId(), livro.getAutor() + " - " + livro.getTitulo(), link);
+        return new LivroResponseDTO(livro.getId(), livro.getAutores() + " - " + livro.getTitulo(), link);
     }
 
     public List<LivroResponse> livrosToResponse(List<Livro> livros) {

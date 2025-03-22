@@ -10,12 +10,16 @@ public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String titulo;
+
     @ManyToMany(mappedBy = "livros")
     private List<Autor> autores;
+
     private int preco;
     private Categoria categoria;
     private String isbn;
+
     @ManyToOne
     @JoinColumn(name = "id_biblioteca")
     private Biblioteca biblioteca;
@@ -60,5 +64,19 @@ public class Livro {
         this.isbn = isbn;
     }
 
+    public List<Autor> getAutores() {
+        return autores;
+    }
 
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
+    }
+
+    public Biblioteca getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
+    }
 }
